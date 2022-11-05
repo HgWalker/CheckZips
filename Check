@@ -1,0 +1,38 @@
+using System;
+namespace CheckZips
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+    //Declarations
+    int Accum = 0; //Accumalator
+    int ZipD = 0; //Holds the users input of the zip code where they want delivered to
+    int Ouside = 0; //Variable to determine thether or not the zip code is outside the delivery range
+    
+    int[] Delivery = { 10845, 10846, 10847, 10848, 10849, 10850, 10851, 10852, 10853, 10854}; //Array
+
+    Console.WriteLine("Please enter the zip code of where you would like to have the package delivered to");
+ 
+    ZipD = Convert.ToInt32(Console.ReadLine()); //User input
+
+    while (Accum < 10)
+    {
+    if (Delivery[Accum] == ZipD) //Checks if the users input 
+    was in the delivery range
+    {
+        Console.WriteLine("Good News! This zip code is in the companies delivery area."); //display if the users input was in the delivery range
+        Ouside = 1; //Prevents the "not in the companies delivery area" meassage from displaying
+     }
+     
+    ++Accum;
+    
+    if (Ouside == 0)
+    {
+      Console.WriteLine("We are sorry. This zip code is not in 
+      the companies delivery area."); //display if the users input was not in 
+      the delivery range
+    }
+   }
+  }
+}
